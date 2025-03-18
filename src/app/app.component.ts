@@ -16,11 +16,12 @@ import { CommonModule } from '@angular/common';
   styles: [`
     .main-container {
       display: flex;
-      min-height: calc(100vh - 60px);
+      min-heights: calc(100vh - 60px);
     }
   `],
   imports: [HeaderComponent, SidebarComponent, RouterModule]
 })
+//baongoc
 export class AppComponent {
   showLayout = false;
 
