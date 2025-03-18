@@ -6,20 +6,9 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <app-header *ngIf="showLayout"></app-header>
-    <div class="main-container">
-      <app-sidebar *ngIf="showLayout"></app-sidebar>
-      <router-outlet></router-outlet>
-    </div>
-  `,
-  styles: [`
-    .main-container {
-      display: flex;
-      min-heights: calc(100vh - 60px);
-    }
-  `],
-  imports: [HeaderComponent, SidebarComponent, RouterModule]
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [HeaderComponent, SidebarComponent, RouterModule, CommonModule]
 })
 //baongoc
 export class AppComponent {
