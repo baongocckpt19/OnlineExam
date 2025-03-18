@@ -3,6 +3,7 @@ import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { CommonModule } from '@angular/common';
+import { HocsinhComponent } from './hocsinh/hocsinh.component';
 
 @Component({
   selector: 'app-root',

@@ -1,9 +1,15 @@
 .header {
     padding: 1rem;
+    width: 112rem;
+    margin-left: auto; 
     margin-bottom: 1.5rem;
     border-radius: 8px;
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 800;
     color: white;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
     background: linear-gradient(to left, #F76AC2, #3EDBFF);
 }

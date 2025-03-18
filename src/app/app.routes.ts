@@ -12,11 +12,13 @@ export const routes: Routes = [
   { 
     path: 'dashboard',
     component: DashboardComponent,
+    data: { title: 'Dashboard' },
     canActivate: [authGuard]
   },
   { 
     path: 'hocsinh',
     component: HocsinhComponent,
+    data: { title: 'Học sinh' },
     canActivate: [authGuard]
   },
   { 
