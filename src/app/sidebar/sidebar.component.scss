@@ -1,0 +1,59 @@
+.sidebar {
+    width: 60px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+
+    .profile {
+        margin-bottom: 2rem;
+        
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .menu-items {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .menu-item {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            i {
+                font-size: 1.5rem;
+                color: #9CA3AF;
+            }
+
+            &.active i {
+                color: #34D399;
+            }
+
+            &:hover {
+                background: #F3F4F6;
+            }
+        }
+    }
+
+    .logout {
+        padding: 0.5rem;
+        cursor: pointer;
+        
+        i {
+            font-size: 1.5rem;
+            color: #F87171;
+        }
+    }
+}
