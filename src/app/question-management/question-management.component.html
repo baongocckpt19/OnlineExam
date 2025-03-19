@@ -1,0 +1,21 @@
+
+
+<div class="question-management">
+  <h2>Quản lý câu hỏi</h2>
+
+  <!-- Form để thêm/sửa câu hỏi -->
+  <div class="question-form">
+    <input [(ngModel)]="currentQuestion.text" placeholder="Nhập câu hỏi" />
+    <button (click)="saveQuestion()">{{ isEditing ? 'Cập nhật' : 'Thêm' }}</button>
+    <button *ngIf="isEditing" (click)="cancelEdit()">Hủy</button>
+  </div>
+
+  <!-- Danh sách câu hỏi -->
+  <ul class="question-list">
+    <li *ngFor="let question of questions; let i = index">
+      <span>{{ question.text }}</span>
+      <button (click)="editQuestion(i)">Sửa</button>
+      <button (click)="deleteQuestion(i)">Xóa</button>
+    </li>
+  </ul>
+</div>
