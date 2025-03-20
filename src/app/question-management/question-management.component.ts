@@ -1,46 +1,69 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // <-- Import CommonModule
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Thêm FormsModule để sử dụng ngModel
+
+interface Question {
+  id: number;
+  text: string;
+  category: string;
+  difficulty: string;
+}
 
 @Component({
   selector: 'app-question-management',
-  standalone: true, // <-- Đánh dấu component là Standalone
-  imports: [FormsModule, CommonModule], // <-- Thêm CommonModule vào mảng imports
+  standalone: true, // Đánh dấu component là standalone
+  imports: [CommonModule, FormsModule], // Thêm FormsModule vào imports
   templateUrl: './question-management.component.html',
-  styleUrls: ['./question-management.component.scss']
+  styleUrls: ['./question-management.component.scss'],
 })
 export class QuestionManagementComponent {
-  questions: { text: string }[] = [];
-  currentQuestion = { text: '' };
+  questions: Question[] = [
+    { id: 1, text: '1 + 1 = ?', category: 'math', difficulty: 'easy' },
+    { id: 2, text: 'Vận tốc ánh sáng là bao nhiêu?', category: 'physics', difficulty: 'medium' },
+    { id: 3, text: 'Công thức hóa học của nước?', category: 'chemistry', difficulty: 'easy' },
+  ];
+
   isEditing = false;
-  editIndex: number | null = null;
+  editId: number | null = null;
+  showModal = false; // Thêm biến để điều khiển hiển thị modal
+
+  currentQuestion: Question = { id: 0, text: '', category: 'math', difficulty: 'easy' };
+
+  openModal(isEditing: boolean = false, question?: Question) {
+    this.showModal = true; // Hiển thị modal
+    this.isEditing = isEditing;
+    if (isEditing && question) {
+      this.currentQuestion = { ...question };
+      this.editId = question.id;
+    } else {
+      this.currentQuestion = { id: 0, text: '1 + 1 = ?', category: 'math', difficulty: 'easy' };
+    }
+  }
+  closeModal() {
+    this.showModal = false; // Ẩn modal
+    this.isEditing = false;
+    this.editId = null;
+  }
 
   saveQuestion() {
-    if (this.isEditing && this.editIndex !== null) {
-      this.questions[this.editIndex] = { ...this.currentQuestion };
+    if (!this.currentQuestion.text || !this.currentQuestion.category || !this.currentQuestion.difficulty) {
+      alert('Vui lòng nhập đầy đủ thông tin!');
+      return;
+    }
+
+    if (this.isEditing && this.editId !== null) {
+      const index = this.questions.findIndex(q => q.id === this.editId);
+      if (index > -1) {
+        this.questions[index] = { ...this.currentQuestion, id: this.editId };
+      }
     } else {
+      this.currentQuestion.id = this.questions.length + 1;
       this.questions.push({ ...this.currentQuestion });
     }
-    this.resetForm();
+    this.closeModal();
   }
 
-  editQuestion(index: number) {
-    this.currentQuestion = { ...this.questions[index] };
-    this.isEditing = true;
-    this.editIndex = index;
-  }
-
-  deleteQuestion(index: number) {
-    this.questions.splice(index, 1);
-  }
-
-  cancelEdit() {
-    this.resetForm();
-  }
-
-  resetForm() {
-    this.currentQuestion = { text: '' };
-    this.isEditing = false;
-    this.editIndex = null;
+  deleteQuestion(id: number) {
+    this.questions = this.questions.filter(q => q.id !== id);
   }
 }

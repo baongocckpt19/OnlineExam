@@ -15,7 +15,7 @@ export class SidebarComponent {
   menuItems = [
     { icon: 'fa-tachometer-alt', label: 'Dashboard', color: '#34D399', route: '/dashboard' },
     { icon: 'fa-users', label: 'Học sinh', color: '#60A5FA', route: '/hocsinh' },
-    { icon: 'fa-question-circle', label: 'Câu hỏi', color: '#FBBF24', route: '/questions' },
+    { icon: 'fa-question-circle', label: 'Câu hỏi', color: '#FBBF24', route: '/question-management' },
     { icon: 'fa-file-alt', label: 'Đề thi', color: '#F87171', route: '/exams' },
     { icon: 'fa-trophy', label: 'Cuộc thi', color: '#A78BFA', route: '/competitions' },
     { icon: 'fa-sign-out-alt', label: 'Log out', color: '#F43F5E', route: '/logout' }

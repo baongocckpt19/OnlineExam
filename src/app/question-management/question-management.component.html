@@ -1,21 +1,51 @@
+<div class="container">
+  <h1>Danh sách câu hỏi</h1>
 
-
-<div class="question-management">
-  <h2>Quản lý câu hỏi</h2>
-
-  <!-- Form để thêm/sửa câu hỏi -->
-  <div class="question-form">
-    <input [(ngModel)]="currentQuestion.text" placeholder="Nhập câu hỏi" />
-    <button (click)="saveQuestion()">{{ isEditing ? 'Cập nhật' : 'Thêm' }}</button>
-    <button *ngIf="isEditing" (click)="cancelEdit()">Hủy</button>
+  <!-- Thanh điều khiển -->
+  <div class="controls">
+    <button class="add-question-btn" (click)="openModal()">Thêm câu hỏi</button>
   </div>
 
-  <!-- Danh sách câu hỏi -->
-  <ul class="question-list">
-    <li *ngFor="let question of questions; let i = index">
-      <span>{{ question.text }}</span>
-      <button (click)="editQuestion(i)">Sửa</button>
-      <button (click)="deleteQuestion(i)">Xóa</button>
-    </li>
-  </ul>
+  <!-- Bảng hiển thị câu hỏi -->
+  <table class="questions-table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Câu hỏi</th>
+        <th>Danh mục</th>
+        <th>Độ khó</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ question.text }}</td>
+        <td>{{ question.category }}</td>
+        <td>{{ question.difficulty }}</td>
+        <td>
+          <button class="edit-btn" (click)="openModal(true, question)">Sửa</button>
+          <button class="delete-btn" (click)="deleteQuestion(question.id)">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal thêm/sửa câu hỏi -->
+<div class="modal" *ngIf="showModal">
+  <h2>{{ isEditing ? 'Sửa câu hỏi' : 'Thêm câu hỏi' }}</h2>
+  <input type="text" [(ngModel)]="currentQuestion.text" placeholder="Nhập câu hỏi" />
+  <select [(ngModel)]="currentQuestion.category">
+    <option value="math">Toán</option>
+    <option value="physics">Lý</option>
+    <option value="chemistry">Hóa</option>
+  </select>
+  <select [(ngModel)]="currentQuestion.difficulty">
+    <option value="easy">Dễ</option>
+    <option value="medium">Trung bình</option>
+    <option value="hard">Khó</option>
+  </select>
+  <button class="save-btn" (click)="saveQuestion()">Lưu</button>
+  <button class="cancel-btn" (click)="closeModal()">Hủy</button>
 </div>

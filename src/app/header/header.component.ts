@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { filter, map } from 'rxjs';
 import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -24,7 +24,8 @@ export class HeaderComponent {
     const routesMap: { [key: string]: string } = {
       '/dashboard': 'Dashboard',
       '/hocsinh': 'Học sinh',
-      '/settings': 'Cài đặt'
+      '/settings': 'Cài đặt',
+      '/question-management': 'Câu Hỏi'
     };
 
     this.title = routesMap[url] || 'Trang chính';

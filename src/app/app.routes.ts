@@ -3,6 +3,8 @@ import { authGuard } from './core/guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HocsinhComponent } from './hocsinh/hocsinh.component';
+import { QuestionManagementComponent } from './question-management/question-management.component';
+import { title } from 'process';
 
 export const routes: Routes = [
   {
@@ -20,6 +22,12 @@ export const routes: Routes = [
     component: HocsinhComponent,
     data: { title: 'Học sinh' },
     canActivate: [authGuard]
+  },
+  {
+    path: 'question-management',
+    component: QuestionManagementComponent,
+    data: {title:'Câu Hỏi'},
+    canActivate : [authGuard]
   },
   {
     path: '',

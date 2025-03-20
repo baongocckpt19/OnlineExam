@@ -1,78 +1,118 @@
-.question-management {
-  max-width: 600px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+  padding: 40px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.add-question-btn {
+  background-color: #3EDBFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.add-question-btn:hover {
+  background-color: #2ec1e5;
+  box-shadow: 0 4px 12px rgba(62, 219, 255, 0.3);
+}
 
-  .question-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+.questions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    input {
-      flex: 1;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+.questions-table th,
+.questions-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
 
-    button {
-      padding: 8px 12px;
-      border: none;
-      border-radius: 4px;
-      background-color: #007bff;
-      color: white;
-      cursor: pointer;
+.questions-table th {
+  background-color: #5f3fbd;
+  color: white;
+}
 
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
-  }
+.questions-table tr:hover {
+  background-color: #f8f9fa;
+}
 
-  .question-list {
-    list-style-type: none;
-    padding: 0;
+.questions-table button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
+.questions-table button.edit-btn {
+  background-color: #3EDBFF;
+  color: white;
+}
 
-      &:last-child {
-        border-bottom: none;
-      }
+.questions-table button.delete-btn {
+  background-color: #F76AC2;
+  color: white;
+}
 
-      button {
-        margin-left: 10px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 4px;
-        background-color: #dc3545;
-        color: white;
-        cursor: pointer;
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
 
-        &:hover {
-          background-color: #c82333;
-        }
+.modal h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
 
-        &:first-of-type {
-          background-color: #ffc107;
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d8e0;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-          &:hover {
-            background-color: #e0a800;
-          }
-        }
-      }
-    }
-  }
+.modal button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.modal button.save-btn {
+  background-color: #3EDBFF;
+  color: white;
+}
+
+.modal button.cancel-btn {
+  background-color: #F76AC2;
+  color: white;
 }
