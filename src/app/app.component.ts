@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 import { HocsinhComponent } from './hocsinh/hocsinh.component';
 import { QuestionManagementComponent } from './question-management/question-management.component';
 import { Routes } from '@angular/router'; 
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent, SidebarComponent, RouterModule, CommonModule]
+  imports: [HeaderComponent, SidebarComponent, RouterModule, CommonModule,TooltipComponent ]
 })
 //baongoc
 export class AppComponent {
@@ -25,8 +26,5 @@ export class AppComponent {
       }
     });
   }
-}
-export const routes: Routes = [
-  { path: '', component: QuestionManagementComponent }, // Hiển thị component khi truy cập root
-  { path: '**', redirectTo: '' } // Redirect mọi đường dẫn không hợp lệ về root
-];
+};
+

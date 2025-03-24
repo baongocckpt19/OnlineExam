@@ -1,118 +1,109 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.question-management {
+  flex: 1;
+  padding: 1.5rem;
+  margin-left: 5rem;
+  margin-top: 100px;
+  font-family: Helvetica, Arial, Tahoma, sans-serif;
+  color: #474747;
 }
 
-.controls {
-  margin-bottom: 20px;
+.search-filter-container {
+  display: flex;
+  justify-content: space-between; /* Đưa ô tìm kiếm sang trái, nút lọc sang phải */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  width: 400px;
 }
 
-.add-question-btn {
-  background-color: #3EDBFF;
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 999px;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  color: #6D28D9;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.filter-btn {
+  background: #2563EB;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 0;
+  
 }
 
-.add-question-btn:hover {
-  background-color: #2ec1e5;
-  box-shadow: 0 4px 12px rgba(62, 219, 255, 0.3);
+.filter-btn i {
+  font-size: 1rem;
 }
 
-.questions-table {
+.table-container {
   width: 100%;
-  border-collapse: collapse;
-  background-color: white;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.questions-table th,
-.questions-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #e9ecef;
-}
-
-.questions-table th {
-  background-color: #5f3fbd;
-  color: white;
-}
-
-.questions-table tr:hover {
-  background-color: #f8f9fa;
-}
-
-.questions-table button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-right: 5px;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.questions-table button.edit-btn {
-  background-color: #3EDBFF;
-  color: white;
-}
-
-.questions-table button.delete-btn {
-  background-color: #F76AC2;
-  color: white;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-.modal h2 {
-  margin-top: 0;
-  color: #2c3e50;
-}
-
-.modal input,
-.modal select {
+table {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #d1d8e0;
-  border-radius: 8px;
-  background-color: #f8f9fa;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  border-collapse: collapse;
 }
 
-.modal button {
-  padding: 10px 20px;
+thead tr {
+  background: #f7db95;
+  text-align: center;
+  
+}
+
+th,
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #E5E7EB;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background: #F3E8FF;
+  
+}
+
+button {
+ 
+  background: none;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  margin-right: 10px;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.modal button.save-btn {
-  background-color: #3EDBFF;
-  color: white;
-}
-
-.modal button.cancel-btn {
-  background-color: #F76AC2;
-  color: white;
+  color: rgb(255, 91, 137);
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+      transform: scale(1.1);
+     // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+ 
 }

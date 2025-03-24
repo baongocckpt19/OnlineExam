@@ -1,51 +1,80 @@
-<div class="container">
-  <h1>Danh sách câu hỏi</h1>
+<app-header title="'Câu Hỏi'"></app-header>
+<main class="question-management">
 
-  <!-- Thanh điều khiển -->
-  <div class="controls">
-    <button class="add-question-btn" (click)="openModal()">Thêm câu hỏi</button>
-  </div>
+    <div class="search-filter-container">
+        <div class="search-box">
+            <input type="text" placeholder="Tìm học sinh">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <button class="filter-btn">
+            Bộ lọc <i class="fas fa-filter"></i>
+        </button>
+    </div>
 
-  <!-- Bảng hiển thị câu hỏi -->
-  <table class="questions-table">
-    <thead>
-      <tr>
-        <th>STT</th>
-        <th>Câu hỏi</th>
-        <th>Danh mục</th>
-        <th>Độ khó</th>
-        <th>Hành động</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let question of questions; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ question.text }}</td>
-        <td>{{ question.category }}</td>
-        <td>{{ question.difficulty }}</td>
-        <td>
-          <button class="edit-btn" (click)="openModal(true, question)">Sửa</button>
-          <button class="delete-btn" (click)="deleteQuestion(question.id)">Xóa</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Số thứ tự</th>
+                    <th>Câu Hỏi</th>
+                    <th>Môn Học</th>
+                    <th>Mức độ</th>
+                    <th>Người tạo</th>
+                    <th>Ngày Tạo</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let question  of questions; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ question.text }}</td>
+                    <td>{{ question.subject }}</td>
+                    <td>{{ question.difficulty }}</td>
+                    <td>{{ question.creator }}</td>
+                    <td>{{ question.date }}</td>
+                    <td>
+                         <!-- From Uiverse.io by catraco --> 
+                         <button>
+                          
+                            <div class="heart-container" title="Like">
+                                <input type="checkbox" class="checkbox" id="Give-It-An-Id">
+                                <div class="svg-container">
+                                    <svg viewBox="0 0 24 24" class="svg-outline" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">
+                                        </path>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" class="svg-filled" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z">
+                                        </path>
+                                    </svg>
+                                    <svg class="svg-celebrate" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                                        <polygon points="10,10 20,20"></polygon>
+                                        <polygon points="10,50 20,50"></polygon>
+                                        <polygon points="20,80 30,70"></polygon>
+                                        <polygon points="90,10 80,20"></polygon>
+                                        <polygon points="90,50 80,50"></polygon>
+                                        <polygon points="80,80 70,70"></polygon>
+                                    </svg>
+                                </div>
+                            </div>
+                        </button>
+                        <button (click)="deleteQuestion(question.id)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                       
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
 
-<!-- Modal thêm/sửa câu hỏi -->
-<div class="modal" *ngIf="showModal">
-  <h2>{{ isEditing ? 'Sửa câu hỏi' : 'Thêm câu hỏi' }}</h2>
-  <input type="text" [(ngModel)]="currentQuestion.text" placeholder="Nhập câu hỏi" />
-  <select [(ngModel)]="currentQuestion.category">
-    <option value="math">Toán</option>
-    <option value="physics">Lý</option>
-    <option value="chemistry">Hóa</option>
-  </select>
-  <select [(ngModel)]="currentQuestion.difficulty">
-    <option value="easy">Dễ</option>
-    <option value="medium">Trung bình</option>
-    <option value="hard">Khó</option>
-  </select>
-  <button class="save-btn" (click)="saveQuestion()">Lưu</button>
-  <button class="cancel-btn" (click)="closeModal()">Hủy</button>
-</div>
+
+
+
+
+
+
