@@ -15,12 +15,7 @@ import { create } from 'domain';
   styleUrls: ['./question-management.component.scss'],
 })
 export class QuestionManagementComponent {
-  viewQuestion(arg0: number) {
-    throw new Error('Method not implemented.');
-  }
-  editQuestion(arg0: number) {
-    throw new Error('Method not implemented.');
-  }
+
 [x: string]: any;
   questions = [
     { id: 1, text: 'Câu Hỏi 1', subject: 'Toán', difficulty: 'Nhận biết', creator: 'Nguyễn văn A', date: '1/1/2025' },
@@ -34,5 +29,11 @@ export class QuestionManagementComponent {
 
   deleteQuestion(id: number) {
     this.questions = this.questions.filter(question => question.id !== id);
+  }
+  viewQuestion(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
+  editQuestion(arg0: number) {
+    throw new Error('Method not implemented.');
   }
 }

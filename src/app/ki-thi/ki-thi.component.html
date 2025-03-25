@@ -1,16 +1,16 @@
-<app-header title="'Câu Hỏi'"></app-header>
-<main class="question-management">
+<app-header title="'Kì thi'"></app-header>
+<main class="ki-thi">
 
     <div class="search-filter-container">
         <div class="search-box">
-            <input type="text" placeholder="Tìm kiếm câu hỏi">
+            <input type="text" placeholder="Tìm kiếm kì thi">
             <button>
                 <i class="fas fa-search"></i>
             </button>
         </div>
         <div class="filter-group">
-            <button class="add-question-btn">
-                Thêm Câu Hỏi <i class="fas fa-plus"></i>
+            <button class="add-exams-btn">
+                Thêm kì thi <i class="fas fa-plus"></i>
             </button>
             <button class="filter-btn">
                 Bộ lọc <i class="fas fa-filter"></i>
@@ -23,22 +23,22 @@
             <thead>
                 <tr>
                     <th>Số thứ tự</th>
-                    <th>Câu Hỏi</th>
+                    <th>Tên Kì thi</th>
                     <th>Môn Học</th>
-                    <th>Mức độ</th>
+                    <th>Trạng Thái</th>
                     <th>Người tạo</th>
                     <th>Ngày Tạo</th>
                     <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let question  of questions; let i = index">
+                <tr *ngFor="let kithi  of kithis; let i = index">
                     <td>{{ i + 1 }}</td>
-                    <td>{{ question.text }}</td>
-                    <td>{{ question.subject }}</td>
-                    <td>{{ question.difficulty }}</td>
-                    <td>{{ question.creator }}</td>
-                    <td>{{ question.date }}</td>
+                    <td>{{ kithi.name }}</td>
+                    <td>{{ kithi.subject }}</td>
+                    <td>{{ kithi.state }}</td>
+                    <td>{{ kithi.creator }}</td>
+                    <td>{{ kithi.date }}</td>
                     <td class='action'>
                         <!-- From Uiverse.io by catraco -->
                         <button>
@@ -67,13 +67,13 @@
                                 </div>
                             </div>
                         </button>
-                        <button (click)="deleteQuestion(question.id)">
+                        <button (click)="deleteKithi(kithi.id)">
                             <i class="fas fa-trash-alt"></i>
                         </button>
-                        <button (click)="editQuestion(question.id)">
+                        <button (click)="editKithi(kithi.id)">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button (click)="viewQuestion(question.id)">
+                        <button (click)="viewKithi(kithi.id)">
                             <i class="fas fa-eye"></i>
                         </button>
                     </td>

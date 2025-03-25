@@ -5,24 +5,27 @@
   margin-top: 100px;
   font-family: Helvetica, Arial, Tahoma, sans-serif;
   color: #474747;
+  
 }
 
 .search-filter-container {
   display: flex;
-  justify-content: space-between; /* Đưa ô tìm kiếm sang trái, nút lọc sang phải */
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
+
 .search-box {
   display: flex;
   align-items: center;
   background: white;
   padding: 0.5rem;
-  border-radius: 999px;
+  border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
   width: 400px;
-  margin-left: 10%;
+  height: 2rem;
+
+  background-color: #f1f0f0;
 }
 
 .search-box input {
@@ -31,6 +34,8 @@
   outline: none;
   padding: 1rem;
   border-radius: 999px;
+  background: none;
+  font-size: 1rem;
 }
 
 .search-box button {
@@ -40,43 +45,58 @@
   color: #6D28D9;
   font-size: 1.2rem;
   cursor: pointer;
+
+}
+
+.filter-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 2.5rem;
+ 
+}
+
+.add-question-btn, .filter-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  justify-content: center;
+  
+}
+
+.add-question-btn {
+  background: #22c55e;
+  color: white;
+  width: 12rem;
 }
 
 .filter-btn {
   background: #2563EB;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    margin-bottom: 0;
-    width: 8rem;
-    margin-right: 10%;
-    position: relative;
-  
-}
+  color: white;
+  width: 8rem;
+  margin-right: 10%;
+  position: relative;
 
-.filter-btn i {
-  font-size: 1rem;
 }
 
 .table-container {
-  width: 80%;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-left: 10%;
-    margin-right: 10%;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
   
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+
 }
 
 thead tr {
@@ -85,20 +105,50 @@ thead tr {
   
 }
 
-th,
-td {
-  padding: 1rem;
+th, td {
+  padding: 2rem;
   border-bottom: 1px solid #E5E7EB;
   text-align: center;
 }
+thead tr th {
+  background: #f7db95;
+  text-align: center;
+  border-right: 1px solid white; // Thêm đường kẻ màu trắng giữa các cột
+}
+
+thead tr th:last-child {
+  border-right: none; // Loại bỏ đường kẻ ở cột cuối cùng
+}
+
 
 tbody tr:nth-child(even) {
   background: #F3E8FF;
-  
 }
-
+th:nth-child(1), td:nth-child(1) {
+  width: 8%; // STT
+  text-align: center; 
+}
+th:nth-child(3), td:nth-child(3) {
+  width: 10%; //môn học
+  text-align: center; 
+}
+th:nth-child(4), td:nth-child(4) {
+  width: 10%; //mức độ
+  text-align: center; 
+}
+th:nth-child(5), td:nth-child(5) {
+  width: 15%; //Người tạo
+  text-align: center; 
+}
+th:nth-child(6), td:nth-child(6) {
+  width: 8%; //Ngày tạo
+  text-align: center; 
+}
+th:nth-child(7), td:nth-child(7) {
+  width: 15%; //HÀNH ĐỘNG
+  text-align: center; 
+}
 button {
- 
   background: none;
   border: none;
   cursor: pointer;
@@ -109,100 +159,97 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  &:hover {
-      transform: scale(1.1);
-  }
-  /* From Uiverse.io by catraco */ 
-  .heart-container {
-    --heart-color: rgb(255, 91, 137);
-    position: relative;
-    width: 20px;
-    height: 20px;
-    transition: .3s;
 }
-.action{
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.heart-container {
+  --heart-color: rgb(255, 91, 137);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  transition: .3s;
+}
+
+.action {
   display: flex;
   justify-content: space-between;
   align-items: center;
- // margin-bottom: 1rem;
-  margin-left: 10%;
-  margin-right: 10%;  
+  margin: 0 10%;
 }
+
 .heart-container .checkbox {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 20;
-    cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
 }
 
 .heart-container .svg-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heart-container .svg-outline,
-        .heart-container .svg-filled {
-    fill: var(--heart-color);
-    position: absolute;
+.heart-container .svg-filled {
+  fill: var(--heart-color);
+  position: absolute;
 }
 
 .heart-container .svg-filled {
-    animation: keyframes-svg-filled 1s;
-    display: none;
+  animation: keyframes-svg-filled 1s;
+  display: none;
 }
 
 .heart-container .svg-celebrate {
-    position: absolute;
-    animation: keyframes-svg-celebrate .5s;
-    animation-fill-mode: forwards;
-    display: none;
-    stroke: var(--heart-color);
-    fill: var(--heart-color);
-    stroke-width: 2px;
+  position: absolute;
+  animation: keyframes-svg-celebrate .5s;
+  animation-fill-mode: forwards;
+  display: none;
+  stroke: var(--heart-color);
+  fill: var(--heart-color);
+  stroke-width: 2px;
 }
 
-.heart-container .checkbox:checked~.svg-container .svg-filled {
-    display: block
+.heart-container .checkbox:checked ~ .svg-container .svg-filled {
+  display: block;
 }
 
-.heart-container .checkbox:checked~.svg-container .svg-celebrate {
-    display: block
+.heart-container .checkbox:checked ~ .svg-container .svg-celebrate {
+  display: block;
 }
 
 @keyframes keyframes-svg-filled {
-    0% {
+  0% {
     transform: scale(0);
-    }
-
-    25% {
+  }
+  25% {
     transform: scale(1.2);
-    }
-
-    50% {
+  }
+  50% {
     transform: scale(1);
     filter: brightness(1.5);
-    }
+  }
 }
 
 @keyframes keyframes-svg-celebrate {
-    0% {
+  0% {
     transform: scale(0);
-    }
-
-    50% {
+  }
+  50% {
     opacity: 1;
     filter: brightness(1.5);
-    }
-
-    100% {
+  }
+  100% {
     transform: scale(1.4);
     opacity: 0;
     display: none;
-    }
-}
+  }
 }

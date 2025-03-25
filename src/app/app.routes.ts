@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HocsinhComponent } from './hocsinh/hocsinh.component';
 import { QuestionManagementComponent } from './question-management/question-management.component';
 import { title } from 'process';
+import { KiThiComponent } from './ki-thi/ki-thi.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,12 @@ export const routes: Routes = [
     path: 'question-management',
     component: QuestionManagementComponent,
     data: {title:'Câu Hỏi'},
+    canActivate : [authGuard]
+  },
+  {
+    path: 'ki-thi',
+    component: KiThiComponent,
+    data: {title:'Kì Thi'},
     canActivate : [authGuard]
   },
   {

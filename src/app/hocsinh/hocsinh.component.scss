@@ -8,6 +8,7 @@
 }
 
 .search-filter-container {
+    height: 2.5rem;
     display: flex;
     justify-content: space-between; /* Đưa ô tìm kiếm sang trái, nút lọc sang phải */
     align-items: center;
@@ -15,16 +16,17 @@
 }
 .search-box {
     display: flex;
-    align-items: center;
-    background: white;
-    padding: 0.5rem;
-    border-radius: 999px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-    width: 400px;
-    margin-left: 10%;
-  
+  align-items: center;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 2rem;
+
+  background-color: #f1f0f0;
 }
+    
 
 .search-box input {
     flex: 1;
@@ -32,7 +34,9 @@
     outline: none;
     padding: 1rem;
     border-radius: 999px;
-}
+    background: none;
+    font-size: 1rem;
+  }
 
 .search-box button {
     margin-left: 9rem;
@@ -48,14 +52,14 @@
     color: white;
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 999px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
     margin-bottom: 0;
     width: 8rem;
-    margin-right: 10%;
+    height: 2.5rem;
     position: relative;
 }
 
@@ -71,13 +75,12 @@
     margin-right: 10%;  
 }
 .table-container {
-    width: 80%;
+    width: 100%;
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 auto;
 }
 
 table {
@@ -90,7 +93,15 @@ thead tr {
     text-align: center;
     
 }
-
+thead tr th {
+    background: #f7db95;
+    text-align: center;
+    border-right: 1px solid white; // Thêm đường kẻ màu trắng giữa các cột
+  }
+  
+  thead tr th:last-child {
+    border-right: none; // Loại bỏ đường kẻ ở cột cuối cùng
+  }
 th,
 td {
     padding: 2rem;
