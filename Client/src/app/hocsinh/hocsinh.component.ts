@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './hocsinh.component.scss'
 })
 export class HocsinhComponent {
+  viewStudent(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
   students = [
     { id: 1, name: 'Nguyễn Văn A', class: '10A1', dob: '01/01/2005', email: 'nguyenvana@example.com', avgScore: 8.5 },
     { id: 2, name: 'Trần Thị B', class: '10A2', dob: '02/02/2005', email: 'tranthib@example.com', avgScore: 9.0 },
