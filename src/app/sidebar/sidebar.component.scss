@@ -12,6 +12,7 @@
     width: 5rem;
     z-index: 2;
     transition: width 0.3s ease;
+    font-family: Helvetica, Arial, Tahoma, sans-serif;
 
     &.expanded {
         width: 15rem; /* Khi mở rộng */
