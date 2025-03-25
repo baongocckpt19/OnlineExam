@@ -16,6 +16,7 @@
 }
 .search-box {
     display: flex;
+<<<<<<< HEAD
   align-items: center;
   background: white;
   padding: 0.5rem;
@@ -25,6 +26,17 @@
   height: 2rem;
 
   background-color: #f1f0f0;
+=======
+    align-items: center;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 999px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    width: 400px;
+    margin-left: 10%;
+
+>>>>>>> 68be54e71455393ebe894e4d8180d8d593f0a7f9
 }
     
 
@@ -72,7 +84,7 @@
     align-items: center;
    // margin-bottom: 1rem;
     margin-left: 10%;
-    margin-right: 10%;  
+    margin-right: 10%;
 }
 .table-container {
     width: 100%;
@@ -91,7 +103,7 @@ table {
 thead tr {
     background: #f7db95;
     text-align: center;
-    
+
 }
 thead tr th {
     background: #f7db95;
@@ -112,11 +124,11 @@ td {
 
 tbody tr:nth-child(even) {
     background: #F3E8FF;
-    
+
 }
 
 button {
-   
+
     background: none;
     border: none;
     cursor: pointer;
@@ -124,7 +136,7 @@ button {
     font-size: 1rem;
     width: 100%;
     height: 100%;
-   
+
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -132,5 +144,5 @@ button {
         transform: scale(1.1);
        // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
 }
