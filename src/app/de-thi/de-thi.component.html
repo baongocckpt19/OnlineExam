@@ -1,0 +1,77 @@
+<app-header title="'Đề Thi'"></app-header>
+<main class="de-thi">
+
+    <div class="search-filter-container">
+        <div class="search-box">
+            <input type="text" placeholder="Tìm kiếm đề thi" [(ngModel)]="searchTerm" (keyup)="applyFilter()">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <button class="filter-btn">
+            Bộ lọc <i class="fas fa-filter"></i>
+        </button>
+        <button class="create-btn" (click)="createNewExam()">
+            Tạo mới <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Số TT</th>
+                    <th>Tên Đề Thi</th>
+                    <th>Môn Học</th>
+                    <th>Thời gian</th>
+                    <th>Số câu</th>
+                    <th>Người tạo</th>
+                    <th>Ngày Tạo</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let exam of filteredExams; let i = index">
+                    <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                    <td>{{ exam.name }}</td>
+                    <td>{{ exam.subject }}</td>
+                    <td>{{ exam.duration }} phút</td>
+                    <td>{{ exam.questionCount }}</td>
+                    <td>{{ exam.creator }}</td>
+                    <td>{{ exam.createdDate | date:'dd/MM/yyyy' }}</td>
+                    <td class="action">
+                        <button (click)="viewExam(exam.id)" title="Xem chi tiết">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button (click)="editExam(exam.id)" title="Chỉnh sửa">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button (click)="deleteExam(exam.id)" title="Xóa">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button (click)="exportExam(exam.id)" title="Xuất file">
+                            <i class="fas fa-file-export"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr *ngIf="filteredExams.length === 0">
+                    <td colspan="8" class="no-data">Không có dữ liệu đề thi</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination" *ngIf="filteredExams.length > 0">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <span *ngFor="let page of getPages()"
+                  (click)="goToPage(page)"
+                  [class.active]="page === currentPage">
+                {{ page }}
+            </span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</main>
