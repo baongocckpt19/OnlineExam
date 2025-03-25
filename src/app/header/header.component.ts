@@ -25,7 +25,8 @@ export class HeaderComponent {
       '/dashboard': 'Dashboard',
       '/hocsinh': 'Học sinh',
       '/settings': 'Cài đặt',
-      '/question-management': 'Câu Hỏi'
+      '/question-management': 'Câu Hỏi',
+      '/dashboard-student': 'Dashboard Học sinh'
     };
 
     this.title = routesMap[url] || 'Trang chính';
