@@ -6,6 +6,7 @@ import { HocsinhComponent } from './hocsinh/hocsinh.component';
 import { QuestionManagementComponent } from './question-management/question-management.component';
 import { title } from 'process';
 import { KiThiComponent } from './ki-thi/ki-thi.component';
+import { DeThiComponent } from './de-thi/de-thi.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,12 @@ export const routes: Routes = [
     path: 'ki-thi',
     component: KiThiComponent,
     data: {title:'Kì Thi'},
+    canActivate : [authGuard]
+  },
+  {
+    path: 'de-thi',
+    component: DeThiComponent,
+    data: {title:'Đề Thi'},
     canActivate : [authGuard]
   },
   {

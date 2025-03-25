@@ -1,104 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
-interface Exam {
-  id: string;
-  name: string;
-  subject: string;
-  duration: number;
-  questionCount: number;
-  creator: string;
-  createdDate: Date;
-  status: string;
-}
 
 @Component({
   selector: 'app-de-thi',
   standalone: true,
-  imports: [FormsModule, CommonModule, HeaderComponent],
+  imports: [ CommonModule, HeaderComponent],
   templateUrl: './de-thi.component.html',
-  styleUrls: ['./de-thi.component.css']
+  styleUrls: ['./de-thi.component.scss']
 })
-export class DeThiComponent implements OnInit {
-  exams: Exam[] = [];
-  filteredExams: Exam[] = [];
-  searchTerm: string = '';
-
-  // Pagination
-  currentPage: number = 1;
-  itemsPerPage: number = 10;
-  totalPages: number = 1;
-
-  ngOnInit(): void {
-    this.loadExams();
-  }
-
-  loadExams(): void {
-    // Mock data - replace with actual API call
-    this.exams = [
-      {
-        id: '1',
-        name: 'Đề thi Toán giữa kỳ',
-        subject: 'Toán',
-        duration: 90,
-        questionCount: 40,
-        creator: 'Nguyễn Văn A',
-        createdDate: new Date('2023-10-15'),
-        status: 'PUBLISHED'
-      },
-      // Add more exams...
-    ];
-    this.applyFilter();
-  }
-
-  applyFilter(): void {
-    this.filteredExams = this.exams.filter(exam =>
-      exam.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      exam.subject.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-    this.totalPages = Math.ceil(this.filteredExams.length / this.itemsPerPage);
-    this.currentPage = 1;
-  }
-
-  // Pagination methods
-  getPages(): number[] {
-    return Array.from({length: this.totalPages}, (_, i) => i + 1);
-  }
-
-  goToPage(page: number): void {
-    this.currentPage = page;
-  }
-
-  previousPage(): void {
-    if (this.currentPage > 1) this.currentPage--;
-  }
-
-  nextPage(): void {
-    if (this.currentPage < this.totalPages) this.currentPage++;
-  }
-
-  // Exam actions
-  createNewExam(): void {
-    // Implement create logic
-  }
-
-  viewExam(id: string): void {
-    // Implement view logic
-  }
-
-  editExam(id: string): void {
-    // Implement edit logic
-  }
-
-  deleteExam(id: string): void {
-    if (confirm('Bạn có chắc chắn muốn xóa đề thi này?')) {
-      this.exams = this.exams.filter(exam => exam.id !== id);
-      this.applyFilter();
-    }
-  }
-
-  exportExam(id: string): void {
-    // Implement export logic
-  }
+export class DeThiComponent {
+deleteDethi(arg0: any) {
+throw new Error('Method not implemented.');
+}
+editDethi(arg0: any) {
+throw new Error('Method not implemented.');
+}
+viewDethi(arg0: any) {
+throw new Error('Method not implemented.');
+}
+dethis = [
+  { id: 1, name: 'Đề giữa kì 1 - lớp 8', subject: 'Toán', numques: '45', time: '45m', creator: 'Nguyễn Văn A', date: '1/1/2025' },
+  { id: 2, name: 'Đề giữa kì 2 - lớp 9', subject: 'Lý', numques: '40', time: '50m', creator: 'Nguyễn Văn B', date: '5/2/2025' },
+  { id: 3, name: 'Đề thi thử đại học - môn Hóa', subject: 'Hóa', numques: '50', time: '60m', creator: 'Nguyễn Văn C', date: '10/3/2025' },
+  { id: 4, name: 'Đề kiểm tra cuối kì 1 - lớp 10', subject: 'Văn', numques: '60', time: '90m', creator: 'Nguyễn Văn D', date: '15/4/2025' },
+  { id: 5, name: 'Đề thi học kì 2 - lớp 11', subject: 'Sinh', numques: '55', time: '75m', creator: 'Nguyễn Văn E', date: '20/5/2025' }
+];
 }
