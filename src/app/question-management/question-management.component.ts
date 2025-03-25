@@ -15,6 +15,13 @@ import { create } from 'domain';
   styleUrls: ['./question-management.component.scss'],
 })
 export class QuestionManagementComponent {
+  viewQuestion(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
+  editQuestion(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
+[x: string]: any;
   questions = [
     { id: 1, text: 'Câu Hỏi 1', subject: 'Toán', difficulty: 'Nhận biết', creator: 'Nguyễn văn A', date: '1/1/2025' },
     { id: 2, text: 'Câu hỏi 2', subject: 'lí', difficulty: 'Nhận biết', creator: 'Nguyễn văn b', date: '1/1/2025' },

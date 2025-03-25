@@ -3,7 +3,7 @@
 
     <div class="search-filter-container">
         <div class="search-box">
-            <input type="text" placeholder="Tìm học sinh">
+            <input type="text" placeholder="Tìm kiếm câu hỏi">
             <button>
                 <i class="fas fa-search"></i>
             </button>
@@ -34,10 +34,9 @@
                     <td>{{ question.difficulty }}</td>
                     <td>{{ question.creator }}</td>
                     <td>{{ question.date }}</td>
-                    <td>
+                    <td class ='action'>
                          <!-- From Uiverse.io by catraco --> 
                          <button>
-                          
                             <div class="heart-container" title="Like">
                                 <input type="checkbox" class="checkbox" id="Give-It-An-Id">
                                 <div class="svg-container">
@@ -63,7 +62,12 @@
                         <button (click)="deleteQuestion(question.id)">
                             <i class="fas fa-trash-alt"></i>
                         </button>
-                       
+                       <button (click)="editQuestion(question.id)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button (click)="viewQuestion(question.id)">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </td>
                     
                 </tr>

@@ -34,8 +34,10 @@
                     <td>{{ student.dob }}</td>
                     <td>{{ student.email }}</td>
                     <td>{{ student.avgScore }}</td>
-                    <td>
-                         
+                    <td class="action">
+                         <button (click)="viewStudent(student.id)">
+                            <i class="fas fa-eye"></i>
+                        </button>
                         <button (click)="deleteStudent(student.id)">
                             <i class="fas fa-trash-alt"></i>
                         </button>

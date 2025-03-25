@@ -22,17 +22,19 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
   width: 400px;
+  margin-left: 10%;
 }
 
 .search-box input {
   flex: 1;
   border: none;
   outline: none;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 999px;
 }
 
 .search-box button {
+  margin-left: 9rem;
   background: none;
   border: none;
   color: #6D28D9;
@@ -42,15 +44,18 @@
 
 .filter-btn {
   background: #2563EB;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  margin-bottom: 0;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 0;
+    width: 8rem;
+    margin-right: 10%;
+    position: relative;
   
 }
 
@@ -59,11 +64,14 @@
 }
 
 .table-container {
-  width: 100%;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
+  width: 80%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 10%;
+    margin-right: 10%;
+  
 }
 
 table {
@@ -103,7 +111,6 @@ button {
   align-items: center;
   &:hover {
       transform: scale(1.1);
-     // box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
   /* From Uiverse.io by catraco */ 
   .heart-container {
@@ -113,7 +120,14 @@ button {
     height: 20px;
     transition: .3s;
 }
-
+.action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ // margin-bottom: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;  
+}
 .heart-container .checkbox {
     position: absolute;
     width: 100%;
