@@ -1,31 +1,33 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { map } from 'rxjs';
+import { AccountService } from '../services/account-service.service';
 
 @Component({
   selector: 'app-login',
   imports: [
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  username = '';
-  password = '';
-  errorMessage = '';
+  model: any = {}
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(public accountService: AccountService, private router: Router) { }
 
-  submit(): void {
-    if (this.authService.login(this.username, this.password)) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.errorMessage = 'Thông tin đăng nhập không chính xác!';
-    }
-  }
+  login() {
+    this.accountService.login(this.model).subscribe({
+      next: response => {
+        console.log('Login successful:', response);
+        this.router.navigate(['/dashboard']);
+      },
+      error: err => {
+        console.error('Login failed:', err);
+      }
+    });
+  }  
 }

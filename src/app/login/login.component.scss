@@ -3,21 +3,32 @@
     margin: 100px;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     font-size: 1.125rem;
    
-  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1300px;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+  }
   .login {
     width: 100%;
-    max-width: 400px;
-    display: flex;
+    max-width: 600px;
+    display: flex-end;
     flex-direction: column;
     align-items: center;
+   
     gap: 2rem;
   
     .account-icon {
-      display: flex;
+      display: flex ;
       justify-content: center;
       
       img {

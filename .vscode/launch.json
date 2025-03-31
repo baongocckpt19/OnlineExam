@@ -4,6 +4,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "OnlineExamApplication",
+      "request": "launch",
+      "mainClass": "com.project.OnlineExam.OnlineExamApplication",
+      "projectName": ""
+    },
+    {
+      "type": "java",
       "name": "DemoApplication",
       "request": "launch",
       "mainClass": "com.example.demo.DemoApplication",

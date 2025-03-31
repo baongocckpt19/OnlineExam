@@ -7,22 +7,24 @@ import { HocsinhComponent } from './hocsinh/hocsinh.component';
 import { QuestionManagementComponent } from './question-management/question-management.component';
 import { Routes } from '@angular/router'; 
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { SignupComponent } from "./signup/signup.component";
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent, SidebarComponent, RouterModule, CommonModule,TooltipComponent ]
+  imports: [HeaderComponent, SidebarComponent, RouterModule, CommonModule, TooltipComponent]
 })
 //baongoc
 export class AppComponent {
-  showLayout = false;
+  showLayoutlogin = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.showLayout = !event.url.includes('/login');
+        this.showLayoutlogin = !event.url.includes('/login');
+      
       }
     });
   }
