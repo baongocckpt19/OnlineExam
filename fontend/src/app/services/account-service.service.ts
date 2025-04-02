@@ -26,4 +26,5 @@ private userInfoSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.get
 
     this.userInfoSubject.next(user);
   }
+  
 }

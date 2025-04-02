@@ -12,6 +12,8 @@ public class account {
     private JdbcTemplate jdbcTemplate;
 
     public Map<String, Object> login(String username, String password_hash, String role) {
+
+
         String sql = "SELECT * FROM users WHERE username = ? AND password_hash = ? AND role = ?";
         Map<String, Object> user = null;
 
@@ -24,5 +26,20 @@ public class account {
 
         }
         return user;
+    }
+
+
+    public int getTotalStudents() {
+        String sql = "SELECT COUNT(*) FROM users WHERE role = 'student'";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+    public int getTotalQuestions() {
+        String sql = "SELECT COUNT(*) FROM questions"; // Thay 'questions' bằng tên bảng câu hỏi của bạn
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+
+    public int getTotalExams() {
+        String sql = "SELECT COUNT(*) FROM exams"; // Thay 'questions' bằng tên bảng câu hỏi của bạn
+        return jdbcTemplate.queryForObject(sql, Integer.class);
     }
 }
