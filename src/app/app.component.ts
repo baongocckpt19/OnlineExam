@@ -13,7 +13,7 @@ import { SignupComponent } from "./signup/signup.component";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.scss',
   imports: [HeaderComponent, SidebarComponent, RouterModule, CommonModule, TooltipComponent]
 })
 //baongoc

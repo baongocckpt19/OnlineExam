@@ -25,9 +25,9 @@
         </div>
   
         <div class="checkbox-group">
-          <input type="checkbox" id="teacher">
+          <input type="checkbox" id="teacher" [(ngModel)]="isTeacher"  name="isTeacher">
           <label for="teacher">Bạn là giảng viên?</label>
-        </div>
+      </div>
   
         <button type="button" class="login-button" (click)="login()">Đăng nhập</button>
   
